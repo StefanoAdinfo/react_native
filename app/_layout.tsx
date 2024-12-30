@@ -19,7 +19,15 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Poppins_Black: require("../assets/fonts/Poppins-Black.ttf"),
+    Poppins_Bold: require("../assets/fonts/Poppins-Bold.ttf"),
+    Poppins_ExtraBold: require("../assets/fonts/Poppins-ExtraBold.ttf"),
+    Poppins_ExtraLight: require("../assets/fonts/Poppins-ExtraLight.ttf"),
+    Poppins_Light: require("../assets/fonts/Poppins-Light.ttf"),
+    Poppins_Medium: require("../assets/fonts/Poppins-Medium.ttf"),
+    Poppins_Regular: require("../assets/fonts/Poppins-Regular.ttf"),
+    Poppins_SemiBold: require("../assets/fonts/Poppins-SemiBold.ttf"),
+    Poppins_Thin: require("../assets/fonts/Poppins-Thin.ttf"),
   });
 
   useEffect(() => {
