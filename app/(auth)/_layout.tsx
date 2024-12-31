@@ -1,7 +1,26 @@
 import React from "react";
+import { View, Text } from "react-native";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from "@react-navigation/native";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
-const _layout = () => {
-  return <div>Auth Layout</div>;
-};
+export default function AuthLayout() {
+  const colorScheme = useColorScheme();
 
-export default _layout;
+  return (
+    <>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+          <Stack.Screen name="sign-up" options={{ headerShown: false }} />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </>
+  );
+}
