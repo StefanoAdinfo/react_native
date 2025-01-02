@@ -8,6 +8,7 @@ import FormField from "@/components/FormField";
 import { images } from "@/constants";
 import CustomButton from "@/components/CustomButton";
 
+import { createUser } from "@/lib/appwrite";
 export default function SignUp() {
   const [isSubmitting, setSubmitting] = useState(false);
 
@@ -18,12 +19,20 @@ export default function SignUp() {
   });
 
   const submit = async () => {
+    if (form.username === "" || form.email === "" || form.password === "") {
+      Alert.alert("Error", "Please fill out all fields");
+    }
+
     setSubmitting(true);
     try {
-      console.log(form);
-      router.push("/home");
+      const result = await createUser({
+        email: form.email,
+        password: form.password,
+        username: form.username,
+      });
+
+      router.replace("/home");
     } catch (error) {
-      Alert.alert("Error", "Something went wrong");
     } finally {
       setSubmitting(false);
     }
@@ -31,7 +40,12 @@ export default function SignUp() {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="w-full flex justify-center h-full px-4 my-6">
+        <View
+          className="w-full flex justify-center h-full px-4 my-6"
+          style={{
+            minHeight: Dimensions.get("window").height - 200,
+          }}
+        >
           <Image
             source={images.logo}
             resizeMode="contain"
