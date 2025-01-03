@@ -19,17 +19,17 @@ export default function SignUp() {
   });
 
   const submit = async () => {
-    if (form.username === "" || form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill out all fields");
-    }
+    // if (form.username === "" || form.email === "" || form.password === "") {
+    //   Alert.alert("Error", "Please fill out all fields");
+    // }
 
     setSubmitting(true);
     try {
-      const result = await createUser({
-        email: form.email,
-        password: form.password,
-        username: form.username,
-      });
+      // const result = await createUser({
+      //   email: form.email,
+      //   password: form.password,
+      //   username: form.username,
+      // });
 
       router.replace("/home");
     } catch (error) {

@@ -18,16 +18,16 @@ export default function SignIn() {
   });
 
   const submit = async () => {
-    if (form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill out all fields");
-    }
+    // if (form.email === "" || form.password === "") {
+    //   Alert.alert("Error", "Please fill out all fields");
+    // }
 
     setSubmitting(true);
     try {
-      const result = await signIn({
-        email: form.email,
-        password: form.password,
-      });
+      // const result = await signIn({
+      //   email: form.email,
+      //   password: form.password,
+      // });
 
       router.replace("/home");
     } catch (error) {
